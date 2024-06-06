@@ -9,7 +9,7 @@ class LoginPage extends Page {
     }
 
     async expectErrorMessage(errorMessage) {
-        return await this.getErrorMessageText().toContain(errorMessage);    
+        return this.getErrorMessageText().then(text => expect(text).toContain(errorMessage));  
     }
     
     open () {
